@@ -1,16 +1,16 @@
 import './Bar.css';
 
 function Bar({ size, isCurrent, isChecked }: {size: number, isCurrent: boolean, isChecked: boolean}) {
-  let bgClass = 'secondary';
+  let bgClass = 'bg-secondary';
 
   if (isCurrent) {
-    bgClass = 'accent';
+    bgClass = 'bg-accent';
   } else if (isChecked) {
-    bgClass = 'primary';
+    bgClass = 'bg-primary';
   }
 
   return (
-    <div style={{height: `${size * 4}%` }} className={`bar rounded bg-${bgClass}`}></div>
+    <div style={{height: `${size * 4}%` }} className={`bar rounded ${bgClass}`}></div>
   );
 }
 

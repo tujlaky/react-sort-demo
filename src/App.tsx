@@ -45,15 +45,15 @@ function App() {
   }, [i, j, numbers, running]);
 
   return (
-    <div className="flex w-full h-full">
+    <div className="flex flex-col-reverse md:flex-row w-full h-full">
       <Controls onReset={onReset} running={running} onStart={() => setRunning(isRunning => !isRunning)}></Controls>
-      <div className="w-full p-4 flex flex-col justify-items-stretch">
+      <div className="w-full h-full p-4 flex flex-col justify-items-stretch">
         <h1 className='mb-4 text-3xl font-bold'>Bubble sort</h1>
         <div className="relative bars w-full flex-1">
           {numbers.map((number, index) => (
-            <div style={{transform: `translate3d(${index * 100}%, 0, 0)`}} key={number} className={`bar-wrapper ${running ? 'transition-transform' : 'transition-none'} absolute bottom-0 left-0 px-2`}>
+            <div style={{transform: `translate3d(${index * 100}%, 0, 0)`}} key={number} className={`bar-wrapper ${running ? 'transition-transform' : 'transition-none'} absolute bottom-0 left-0 px-1 md:px-2`}>
               <Bar isCurrent={index === numbers.length - i - 1} isChecked={index === j} size={number}></Bar>
-              <b>{number}</b>
+              <b className='hidden md:inline'>{number}</b>
             </div>
           ))}
         </div>
